@@ -1,0 +1,15 @@
+{
+    "require": {
+        "klein/klein": "^2.1",
+        "illuminate/database": "^5.2",
+        "twig/twig": "^1.23",
+        "cartalyst/sentry": "2.1.*",
+        "pimple/pimple": "~3.0"
+    },
+    "autoload":{
+    	"classmap": ["app"],
+    	"files": [
+    		"app/helpers.php"
+    	]
+    }
+}

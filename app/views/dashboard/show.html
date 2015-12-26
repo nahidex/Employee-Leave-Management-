@@ -1,0 +1,43 @@
+{% include 'partials/header.html' %}
+{% include 'partials/nav.html' %}
+<br>
+<br>
+<a href="http://localhost:8000/dashboard/index" class="btn btn-default">Back</a>
+
+<div class="row">
+<div class="col-md-12">
+
+	<h1>All the users</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Acton</th>
+				<th>Acton</th>
+				<th>Permission</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for user in users %}
+			<tr>
+				<td>{{ user.name }}</td>
+				<td>{{ user.email  }}</td>
+				<td><a class="btn btn-primary" href="edit/{{user.id}}">Edit</a></td>
+				<td><a class="btn btn-danger" href="delete/{{user.id}}">Delete</a></td>
+				<td>
+						{% if user.role.permission == '1' %}
+							{{ roles.0 }}
+						{% else %}
+							{{ roles.1 }}
+						{% endif %}
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	</div>
+</div>
+
+{% include 'partials/footer.html' %}

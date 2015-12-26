@@ -1,0 +1,22 @@
+{% include 'partials/header.html' %}
+{% include 'partials/nav.html' %}
+
+<div class="row">
+	<div class="col-md-12">
+	
+		<h1>Dashboard</h1>
+		{{ session.flash }}
+		<ul>
+		{% for leave in leaves %}
+
+			<li>{{ leave.title}}</li>
+
+		{% endfor  %}
+		</ul>
+
+
+	</div>
+</div>
+
+
+{% include 'partials/footer.html' %}

@@ -1,0 +1,39 @@
+{% include 'partials/header.html' %}
+{% include 'partials/nav.html' %}
+<br>
+<br>
+<a href="/dashboard/show" class="btn btn-default">Back</a>
+<h1>Editing User</h1>
+
+<form method="post" action="/dashboard/edit/{{user.id}}">
+
+<div class="form-group">
+	<input name="name" type="text" class="form-control" value="{{user.name}}">
+</div>	
+
+
+<div class="form-group">
+	<input name="email" type="text" class="form-control" value="{{user.email}}"><br>
+</div>
+<div class="form-group">
+	<input name="password" class="form-control"  type="password"><br>
+</div>
+
+<div class="form-group">
+	<select name='permission' class="form-control">
+
+		{% if user.role.permission == '1' %}
+			<option selected="selected" value="{{ user.role.permission }}">Admin</option>
+			<option value="2">User</option>
+		{% else %}
+			<option selected="selected" value="{{ user.role.permission }}">User</option>
+			<option value="1">Admin</option>
+		{% endif %}
+
+	</select>
+</div>
+
+	<input value="Submit" class="btn btn-primary" type="submit"><br>
+</form>
+
+{% include 'partials/footer.html' %}

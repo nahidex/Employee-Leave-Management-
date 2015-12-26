@@ -1,0 +1,47 @@
+{% include 'partials/header.html' %}
+{% include 'partials/nav.html' %}
+
+
+<div class="row">
+<div class="col-md-12">
+
+	<h1>All Leave Request</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Title</th>
+				<th>Remaining</th>
+				<th>Requested</th>
+				<th>Requested Day</th>
+				<th>Active</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for leave in leaves %}
+			<tr>
+				<td>{{ leave.user.name }}</td>
+				<td>{{ leave.title }}</td>
+				<td>{{ leave.leave_remain }}</td>
+				<td>{{ leave.leave_times }}</td>
+				<td>{{ leave.leave_count }}</td>
+				<td>{{ leave.active_token  }}</td>
+				<td>
+					{% if role.permission == 1 %}
+						<a class="btn btn-primary" href="approve/{{leave.id}}">Approve</a>
+					{% else %}
+						<button type="button" class="btn btn-primary" disabled="disabled">Approve</button>
+					{%  endif %}
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	</div>
+</div>
+
+
+
+{% include 'partials/footer.html' %}
